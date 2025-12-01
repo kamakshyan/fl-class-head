@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "brain-tumor-fl"
+version = "1.0.0"
+description = "Multi-modal federated learning with differential privacy"
+license = "Apache-2.0"
+dependencies = [
+    "flwr[simulation]>=1.10.0",
+    "torch",
+    "torchvision",
+    "opacus",
+    "numpy",
+    "pillow",
+    "scikit-learn"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "researcher"
+
+[tool.flwr.app.components]
+# This tells Flower strictly where to find the 'app' object in your python files
+serverapp = "server_app:app"
+clientapp = "client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 20
+fraction-fit = 1.0
+
+[tool.flwr.federations]
+default = "local-simulation"
+
+[tool.flwr.federations.local-simulation]
+# This defines how many 'Hospitals' we are simulating
+options.num-supernodes = 2

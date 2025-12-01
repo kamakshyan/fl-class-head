@@ -1,0 +1,9 @@
+flwr[simulation]>=1.10.0
+torch
+torchvision
+opacus
+numpy
+pillow
+scikit-learn
+matplotlib
+seaborn
