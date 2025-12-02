@@ -1,5 +1,7 @@
 /Dataset
 /Venv
 /__pycache__
+*.pkl
 *.png
 global_model.pth
+.jpg
