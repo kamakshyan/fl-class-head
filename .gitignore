@@ -2,3 +2,4 @@
 /Venv
 /__pycache__
 *.png
+global_model.pth
